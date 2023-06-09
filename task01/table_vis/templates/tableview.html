@@ -1,0 +1,72 @@
+{% comment %} {% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TUT</title>
+  </head>
+  <body>
+    {% for item in queryset %}
+    <tr>
+      <td>{{ item.date }}</td>
+      <td>{{ item.trade_code }}</td>
+      <td>{{ item.high }}</td>
+      <td>{{ item.low }}</td>
+      <td>{{ item.open }}</td>
+      <td>{{ item.close }}</td>
+      <td>{{ item.volume }}</td>
+    </tr>
+    {% endfor %}
+  </body>
+</html>
+{% endcomment %} {% comment %} {% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>stock market data</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    {% render_table table %}
+  </body>
+</html>
+{% endcomment %}
+  <html>
+    <body>
+      <p>
+      <a href="{%url 'chart'%}"class = "button"> view chart </a>
+      </p>
+      <p>
+        <a href="{%url 'data_insert'%}" class = "button"> add values </a>
+      </p>
+      <table>
+        <tr>
+          <th>id</th>
+          <th>date</th>
+          <th>trade_code</th>
+          <th>high</th>
+          <th>low</th>
+          <th>open</th>
+          <th>close</th>
+          <th>volume</th>
+        </tr>
+        {% for item in tabledata %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.trade_code }}</td>
+          <td>{{ item.high }}</td>
+          <td>{{ item.low }}</td>
+          <td>{{ item.open }}</td>
+          <td>{{ item.close }}</td>
+          <td>{{ item.volume }}</td>
+          <td><a href="edit/{{item.id}}"> edit </a></td>
+          <td><a href="delete/{{item.id}}"> delete </a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </body>
+  </html>
+</body>

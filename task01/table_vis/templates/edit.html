@@ -1,0 +1,63 @@
+<html>
+  <body>
+    <form method="POST" action="/update/{{edit_data.id}}/">
+      {% csrf_token %}
+      <table>
+        <tr>
+          <td>date</td>
+          <td>
+            <input type="text" value="{{edit_data.date}}" name="date" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>trade_code</td>
+          <td>
+            <input
+              type="text"
+              value="{{edit_data.trade_code}}"
+              name="trade_code"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>high</td>
+          <td>
+            <input type="text" value="{{edit_data.high}}" name="high" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>low</td>
+          <td><input type="text" value="{{edit_data.low}}" name="low" /></td>
+        </tr>
+
+        <tr>
+          <td>open</td>
+          <td>
+            <input type="text" value="{{edit_data.open}}" name="open" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>close</td>
+          <td>
+            <input type="text" value="{{edit_data.close}}" name="close" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>volume</td>
+          <td>
+            <input type="text" value="{{edit_data.volume}}" name="volume" />
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="update values" />
+      <a href="{%url 'tableview'%}"> back to home </a>
+      {%if messages%} {%for result in messages %} {{result}} {%endfor%}
+      {%endif%}
+    </form>
+  </body>
+</html>

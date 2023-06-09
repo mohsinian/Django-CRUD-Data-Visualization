@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <table>
+        <form method = "POST">
+            {% csrf_token %}
+      <tr>
+        <td>date</td>
+        <td><input type ="text" placeholder ="date" name ="date"></td>
+      </tr>
+
+      <tr>
+        <td>trade_code</td>
+        <td><input type ="text" placeholder ="trade_code" name ="trade_code"> </td>
+      </tr>
+
+      <tr>
+        <td>high</td>
+        <td><input type ="text" placeholder ="high" name ="high"> </td>
+      </tr>
+
+      <tr>
+        <td>low</td>
+        <td><input type ="text" placeholder ="low" name ="low"></td>
+      </tr>
+
+      <tr>
+        <td>open</td>
+        <td><input type ="text" placeholder ="open" name ="open"></td>
+      </tr>
+
+      <tr>
+        <td>close</td>
+        <td><input type ="text" placeholder ="close" name ="close"></td>
+      </tr>
+
+      <tr>
+        <td>volume</td>
+        <td><input type ="text" placeholder ="volume" name ="volume"></td>
+      </tr>
+    </table>
+    <input type ="submit" value = "insert values"/>
+    <a href ="{%url 'tableview'%}"> back to home </a>
+    {%if messages%}
+    {%for result in messages %}
+    {{result}}
+    {%endfor%}
+    {%endif%}
+</form>
+</body>
+</html>
